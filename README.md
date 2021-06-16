@@ -63,7 +63,9 @@ mongoose.connect(process.env.MONGODB_URL,  {
 Na rota ``GetAll``, ficará da seguinte, fora:
 
 ```const getAll = (req, res) => {
-
+  console.log(req.url);
+    colaboradoras.find(function (err, colaboradoras){
+      res.status(200).send(colaboradoras)
     })     
 };```
 
