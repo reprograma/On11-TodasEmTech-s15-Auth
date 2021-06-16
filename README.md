@@ -60,21 +60,35 @@ mongoose.connect(process.env.MONGODB_URL,  {
 8 - Pegar o header de autorização e enviar uma mensagem de erro 401 vir vazio
 `$ const authHeader = request.get(‘authorization’);`
 
-Na rota ``GetAll``, ficará da seguinte, fora:
+Na rota ``getAll``, ficará da seguinte, forma:
 
-```const getAll = (req, res) => {
-  console.log(req.url);
-    colaboradoras.find(function (err, colaboradoras){
+```
+const getAll = (req, res) => {
+  const authHeader = req.get('authorization');
+  const token = authHeader.split(' ')[1];
+  console.log('Meu header:', token);
+
+  if (!token) {
+    return res.status(401).send('erro no header');
+  }
+
+        colaboradoras.find(function (err, colaboradoras){
       res.status(200).send(colaboradoras)
     })     
-};```
-
+};
+```
 
 9 - Passar bearer token no header de autenticação via postman
 `$ Bearer TOKEN_JWT_AQUI`
 
+O esperado após esses passos, é que você tente fazer o request de `getAll` no postman e apareça no terminal o header e o token que vc determinou, sem a palavra Bearer. 
+
+
 10 - Verificar token JWT  e enviar uma mensagem de erro 403 caso seja inválido. 
 `$ jwt.verify(token, SECRET, (error) => {...});`
+
+
+
 
 
 -----------------------------------------------------------------------------------------------
@@ -93,7 +107,7 @@ Na rota ``GetAll``, ficará da seguinte, fora:
 
 4 - Criar nova colaboradora no banco com a senha hasherizada e o login(email) recebido no body da request.
 
-------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
 ### Vamos criar a rota de login
 
