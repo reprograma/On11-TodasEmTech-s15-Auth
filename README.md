@@ -32,16 +32,41 @@ Segue as orientações:
 4 - Criar arquivo .env.example e env., ambos com chave chamada SECRET 
 `$ secret=chave_rsa_aqui_sem_aspas`
 
-5 - Carregar as variáveis de ambiente no projeto, no arquivo xxxRoute.js da pasta route. 
+5 - Carregar as variáveis de ambiente no projeto, no arquivo app.js, coloque na linha 1 do arquivo 
 `$ require(‘dontenv-safe’).config();`
 
-6 - Criar variável contendo a SECRET 
+Depois disso, vamos recriar a String de conexão do localhost, iremos proteger nosso http://localhost... criando uma variável de ambiente chamada MONGODB_URL, que ficará dentro do arquivo `.env`.
+
+Dentro do arquivo `.env`ficará:
+
+```SECRET=chave_rsa_aqui_sem_aspas
+   MONGODB_URL= "mongodb://localhost:27017/reprograma"
+```
+
+Na String de conexão no arquivo app.js, ficará:
+
+```//String de conexão
+mongoose.connect(process.env.MONGODB_URL,  {
+     useNewUrlParser: true,
+     useUnifiedTopology: true
+});
+```
+
+6 - Criar variável contendo a SECRET em colaboradorasController.js
 `$ const secret = process.env.SECRET`
 
-7 - Criar método de autenticação em `getAll`
+7 - Criar método de autenticação na rota `getAll`
 
 8 - Pegar o header de autorização e enviar uma mensagem de erro 401 vir vazio
 `$ const authHeader = request.get(‘authorization’);`
+
+Na rota ``GetAll``, ficará da seguinte, fora:
+
+```const getAll = (req, res) => {
+
+    })     
+};```
+
 
 9 - Passar bearer token no header de autenticação via postman
 `$ Bearer TOKEN_JWT_AQUI`
