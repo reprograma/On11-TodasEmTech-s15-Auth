@@ -87,7 +87,17 @@ O esperado após esses passos, é que você tente fazer o request de `getAll` no
 10 - Verificar token JWT  e enviar uma mensagem de erro 403 caso seja inválido. 
 `$ jwt.verify(token, SECRET, (error) => {...});`
 
+Antes de tudo, precisamos importar a biblioteca jwt, então coloca na linha 3 do controller 
+`$ const jwt = require('jsonwebtoken');`
 
+Agora sim, podemos aplicar o método verify e verificar se tudo está pegando corretamente. 
+Vamos lá!
+```
+  jwt.verify(token, SECRET, function(erro) {
+    if (erro) {
+      return res.status(403).send('Não autorizado');
+    }
+```
 
 
 
