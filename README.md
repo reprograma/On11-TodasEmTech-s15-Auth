@@ -110,7 +110,7 @@ Vamos lá!
 `$ npm install bcrypt`
 
 2 - Fazer require do bcrypt no colaboradorasController.js 
-`$ const bcrypt = require(‘bcryptjs’)`
+`$ const bcrypt = require('bcryptjs')`
 
 3 - Gerar hash com senha recebida no body da request 
 `$ bcrypt.hashSync(request, body, senha, 10)`
