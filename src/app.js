@@ -28,6 +28,7 @@ const index = require("./routes/index")
 const colaboradoras = require("./routes/colaboradoras")
 
 
+
 //configurar body parser
 app.use(bodyParser.json())
 //app.use(express.json()); //- Podemos usar a propria função de parser de json do express, sem a necessidade de instalar o body parser
@@ -45,5 +46,6 @@ app.use(function (req, res, next) {
 
 app.use("/", index)
 app.use("/colaboradoras", colaboradoras)
+
 
 module.exports = app

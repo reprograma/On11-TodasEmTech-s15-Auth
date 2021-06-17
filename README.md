@@ -135,3 +135,4 @@ Vamos lá!
 `$ jwt.sign({ name:colaboradora.name }, SECRET;`
 
 6 - Bater na rota getAll via Postman com o token gerado
+
