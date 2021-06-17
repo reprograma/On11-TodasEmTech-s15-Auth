@@ -2,9 +2,10 @@
   "name": "on11-todasemtech-s15-auth",
   "version": "1.0.0",
   "description": "Turma Online 11 - Todas em Tech | Back-end | 2021 | Semana 15: Autenticação e Segurança",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
