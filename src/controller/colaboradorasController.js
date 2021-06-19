@@ -1,35 +1,39 @@
-const colaboradoras = require("../models/colaboradoras");
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const colaboradoras = require("../models/colaboradoras")
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
 
 
 const getAll = (req, res) => {
-  const authHeader = req.get('authorization');
-  const token = authHeader.split(' ')[1];
-  console.log('Meu header:', token);
+  const authHeader = req.get('authorization')
+  const token = authHeader.split(' ')[1]
+  console.log('Meu header:', token)
 
   if (!authHeader) {
-    return res.status(401).send('erro no header');
+    return res.status(401).send('erro no header')
   }
 
-jwt.verify(token, SECRET, function(erro) {
+  jwt.verify(token, SECRET, function (erro) {
     if (erro) {
-      return res.status(403).send('Não autorizado');
+      return res.status(403).send('Não autorizado')
     }
 
-       colaboradoras.find(function (err, colaboradoras){
-      res.status(200).send(colaboradoras)
-    }) 
-  })    
+    colaboradoras.find(function (err, colaboradoras) {
+      if (err) {
+        return res.status(500).send({ message: err.message })
+      } else {
+        res.status(200).send(colaboradoras)
+      }
+    })
+  })
 };
 
 const postColaboradora = (req, res) => {
-  const senhaComHash = bcrypt.hashSync(req.body.password, 10);
+  const senhaComHash = bcrypt.hashSync(req.body.password, 10)
   req.body.password = senhaComHash;
   const colaboradora = new colaboradoras(req.body);
 
-  colaboradora.save(function(err) {
+  colaboradora.save(function (err) {
     if (err) {
       res.status(500).send({ message: err.message })
     }
@@ -38,29 +42,30 @@ const postColaboradora = (req, res) => {
   })
 };
 
+
 const login = (req, res) => {
-  colaboradoras.findOne({ email: req.body.email }, function(error, colaboradora) {
+  colaboradoras.findOne({ email: req.body.email }, function (error, colaboradora) {
     if (!colaboradora) {
-	   return res.status(404).send(`Não existe colaboradora com o email ${req.body.email}`);
+      return res.status(404).send(`Não existe colaboradora com o email ${req.body.email}`)
     }
 
-    const senhaValida = bcrypt.compareSync(req.body.password, colaboradora.password);
-    
+    const senhaValida = bcrypt.compareSync(req.body.password, colaboradora.password)
+
     if (!senhaValida) {
-      return res.status(403).send(`que senha é essa hein`);
+      return res.status(403).send(`Senha inválida`)
     }
 
-    const token = jwt.sign({ email: req.body.email }, SECRET);
+    const token = jwt.sign({ email: req.body.email }, SECRET)
 
-      return res.status(200).send(token);
+    return res.status(200).send(token)
   });
 }
-    
+
 
 
 
 module.exports = {
-    getAll,
-    postColaboradora,
-    login,
+  getAll,
+  postColaboradora,
+  login,
 }
