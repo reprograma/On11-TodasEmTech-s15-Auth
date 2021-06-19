@@ -25,7 +25,8 @@ db.once("open", function (){
 
 //rotas
 const index = require("./routes/index")
-const colaboradoras = require("./routes/colaboradoras")
+const colaboradoras = require("./routes/colaboradoras");
+const marcas = require('./routes/tarefas');
 
 
 
@@ -46,6 +47,6 @@ app.use(function (req, res, next) {
 
 app.use("/", index)
 app.use("/colaboradoras", colaboradoras)
-
+app.use("/marcas", marcas)
 
 module.exports = app

@@ -152,3 +152,5 @@ A atividade será criar uma nova rota no models de tarefas.js, fazer todas as et
 Apenas a rota getAll, será necessária. O objetivo é de testar no postman trazer todas as listas de tarefas com a autenticação reconhecendo o header.
 
 Faça o fork desse repositório e clone na sua máquina, crie uma branch, após as alterações, realize o pull request e siga o procedimento de registro de atividade. 
+
+
