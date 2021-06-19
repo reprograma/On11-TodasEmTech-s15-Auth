@@ -1,7 +1,7 @@
 require('dotenv-safe').config();
 
 const express = require("express")
-const bodyParser = require("body-parser")
+//const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 
 
@@ -26,12 +26,12 @@ db.once("open", function (){
 //rotas
 const index = require("./routes/index")
 const colaboradoras = require("./routes/colaboradoras")
-
+const tarefas = require("./routes/tarefas")
 
 
 //configurar body parser
-app.use(bodyParser.json())
-//app.use(express.json()); //- Podemos usar a propria função de parser de json do express, sem a necessidade de instalar o body parser
+// app.use(bodyParser.json())
+app.use(express.json()); //- Podemos usar a propria função de parser de json do express, sem a necessidade de instalar o body parser
 
 
 app.use(function (req, res, next) {
@@ -46,6 +46,7 @@ app.use(function (req, res, next) {
 
 app.use("/", index)
 app.use("/colaboradoras", colaboradoras)
+app.use("/tarefas", tarefas)
 
 
 module.exports = app
