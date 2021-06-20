@@ -17,7 +17,7 @@ Seguiremos a ordem de instalações:
 
 -------------------------------
 
-Este projeto já está com o método HTTP Get organizado, e todas as rotas de integração com o banco de dados. O próximo passo agora é criar o processo de autenticação.
+### Este projeto já está com o método HTTP Get organizado, e todas as rotas de integração com o banco de dados. O próximo passo agora é criar o processo de autenticação.
 
 Segue as orientações:
 
@@ -135,3 +135,20 @@ Vamos lá!
 `$ jwt.sign({ name:colaboradora.name }, SECRET;`
 
 6 - Bater na rota getAll via Postman com o token gerado
+
+----------------------------------------------------------------------------
+## Atividade para casa
+
+A atividade será criar uma nova rota no models de tarefas.js, fazer todas as etapas de autenticação no passo a passo acima. A Schema de tarefas será na seguinte estrutura:
+
+```
+    id : { type : Number},
+    descricao: { type: String },
+    dataInclusao: { type: String },
+    concluido: { type: Boolean },
+    nomeColaboradora: { type: String }
+```
+
+Apenas a rota getAll, será necessária. O objetivo é de testar no postman trazer todas as listas de tarefas com a autenticação reconhecendo o header.
+
+Faça o fork desse repositório e clone na sua máquina, crie uma branch, após as alterações, realize o pull request e siga o procedimento de registro de atividade. 
