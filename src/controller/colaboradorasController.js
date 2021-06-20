@@ -13,12 +13,11 @@ const getAll = (req, res) => {
     return res.status(401).send('erro no header');
   }
 
-jwt.verify(token, SECRET, function(erro) {
-    if (erro) {
-      return res.status(403).send('Não autorizado');
+  jwt.verify(token, SECRET, err => {
+    if(err) {
+      return res.status(401).send("Não Autorizado")
     }
-
-       colaboradoras.find(function (err, colaboradoras){
+    colaboradoras.find(function (err, colaboradoras){
       res.status(200).send(colaboradoras)
     }) 
   })    

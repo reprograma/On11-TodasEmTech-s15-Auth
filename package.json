@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/reprograma/On11-TodasEmTech-s15-Auth.git"
   },
-  "author": "",
+  "author": "Lilit Bandeira",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/reprograma/On11-TodasEmTech-s15-Auth/issues"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/reprograma/On11-TodasEmTech-s15-Auth#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",

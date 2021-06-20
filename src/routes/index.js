@@ -1,10 +1,12 @@
-const express = require("express")
-const router = express.Router()
+const { Router } = require("express")
+const router = Router()
+const {author, version} = require('../../package.json')
 
 router.get("/", function (req, res) {
     res.status(200).send({
-        title: "Reprograma - On7 Semana 11 - Projeto Revisão",
-        version: "1.0.0"
+        title: "Reprograma - On11 Semana 15 - Auth",
+        author,
+        version
     })
 })
 
