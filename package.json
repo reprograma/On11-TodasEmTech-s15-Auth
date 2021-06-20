@@ -1,25 +1,23 @@
 {
-  "name": "on11-todasemtech-s15-auth",
+  "name": "serie-node",
   "version": "1.0.0",
-  "description": "Turma Online 11 - Todas em Tech | Back-end | 2021 | Semana 15: Autenticação e Segurança",
-  "main": "server.js",
+  "description": "",
+  "main": "nodemon server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reprograma/On11-TodasEmTech-s15-Auth.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/reprograma/On11-TodasEmTech-s15-Auth/issues"
-  },
-  "homepage": "https://github.com/reprograma/On11-TodasEmTech-s15-Auth#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.13",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.14",
     "nodemon": "^2.0.7"
   }
 }
