@@ -26,7 +26,7 @@ db.once("open", function (){
 //rotas
 const index = require("./routes/index")
 const colaboradoras = require("./routes/colaboradoras")
-
+const tarefas = require("./routes/tarefas")
 
 
 //configurar body parser
@@ -46,6 +46,8 @@ app.use(function (req, res, next) {
 
 app.use("/", index)
 app.use("/colaboradoras", colaboradoras)
+app.use("/tarefas", tarefas)
+
 
 
 module.exports = app
