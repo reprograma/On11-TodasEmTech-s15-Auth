@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/reprograma/On11-TodasEmTech-s15-Auth#readme",
   "dependencies": {
+    "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.13",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.14",
     "nodemon": "^2.0.7"
-  }
+  },
+  "devDependencies": {}
 }
