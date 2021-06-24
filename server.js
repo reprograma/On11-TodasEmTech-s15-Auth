@@ -1,6 +1,9 @@
 const app = require("./src/app")
-const port = 3000;
+const PORT = 4500 
 
-app.listen(port, () => {
-    console.log(`Servidor está rodando na porta ${port}`);
-});
+const db = require("./src/data/database")
+db.connect()
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+})
