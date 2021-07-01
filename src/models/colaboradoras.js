@@ -9,4 +9,4 @@ const colaboradora = new mongoose.colaboradora({
     }
 })
 
-module.exports = mongoose.model('estudio', estudioSchema )
+module.exports = mongoose.model('colaboradoras', colaboradora )
